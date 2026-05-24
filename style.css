@@ -1,4 +1,4 @@
-/*general styles*/
+/* general styles */
 * {
   margin: 0;
   padding: 0;
@@ -84,18 +84,25 @@ body {
   text-align: center;
   font-weight: normal;
 }
-
 .contact_info_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px; 
+}
+.contact_info_container > .contact-info__block:first-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 15px;
+  flex: 1;
+}
+.contact-info__block--center {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0; 
 }
 
-.contact-info__block {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; 
-}
 .contact-info__block:empty {
   display: none;
 }
@@ -118,6 +125,7 @@ body {
   width: 20px;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact-info__item-icon {
@@ -132,6 +140,13 @@ body {
   object-fit: cover;
   border: 4px solid var(--text-decoration-color);
   box-shadow: 0 4px 10px rgba(34, 255, 0, 0.2);
+  transition: transform 0.6s ease-in-out, box-shadow 0.3s;
+}
+
+.contact-info__avatar:hover {
+  transform: rotate(360deg) scale(1.1);
+  box-shadow: 0 0 15px var(--border-color);
+  cursor: pointer;
 }
 
 .intro {
@@ -155,11 +170,16 @@ body {
   text-align: justify;
 }
 
-.skills__header {
+.skills__header,
+.experiences__main-header,
+.additional-info__education-header,
+.additional-info__languages-header {
   color: var(--primary-text-color);
-  margin-bottom: 20px;
+  margin-bottom: 21px;
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 1.4rem; 
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .skills__list {
@@ -169,6 +189,7 @@ body {
   list-style: none;
   margin-bottom: 30px;
 }
+
 .skills__item {
   background-color: rgba(255, 0, 157, 0.05);
   border: 1px solid var(--border-color);
@@ -181,12 +202,6 @@ body {
 
 .main-info {
   align-items: flex-start;
-}
-.experiences__main-header {
-  color: var(--primary-text-color);
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font-size: 1.1rem;
 }
 
 .experiences {
@@ -237,14 +252,6 @@ body {
   flex: 1;
 }
 
-.additional-info__education-header,
-.additional-info__languages-header {
-  color: var(--primary-text-color);
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-}
-
 .additional-info__education-university,
 .additional-info__education-school {
   margin-bottom: 20px;
@@ -290,6 +297,10 @@ body {
     gap: 30px;
     text-align: center;
   }
+  .contact_info_container > .contact-info__block:first-child {
+    grid-template-columns: 1fr;
+    justify-items: center; 
+  }
 
   .contact-info__item {
     justify-content: center;
@@ -298,16 +309,4 @@ body {
   .experiences, .additional-info {
     flex: auto;
   }
-}
-
-.skills__header,
-.experiences__main-header,
-.additional-info__education-header,
-.additional-info__languages-header {
-  color: var(--primary-text-color);
-  margin-bottom: 21px;
-  text-transform: uppercase;
-  font-size: 1.4rem; 
-  font-weight: 800;
-  letter-spacing: 2px;
 }

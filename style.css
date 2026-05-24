@@ -12,9 +12,9 @@ body {
   --primary-text-color: #181820;
   --secondary-text-color: #5c5c62;
   --durability-text-color: #6a737d9c;
-  --icon-color: #6a737d;
-  --border-color: #ff9a0045;
-  --text-decoration-color: #ff9a00;
+  --icon-color: #bd0c7991;
+  --border-color: #ff009dda;
+  --text-decoration-color: #22ff00;
 }
 
 .container {
@@ -49,26 +49,7 @@ body {
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 576px) {
-  .main-info,
-  .contact_info_container {
-    flex-direction: column;
-  }
-
-  .contact_info_container {
-    align-items: center;
-  }
-
-  .contact-info__block:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  .experiences {
-    margin-right: 0;
-  }
-}
-
-/*contact info*/
+/* contact info */
 .contact-info__header,
 .contact-info__sub-header {
   text-align: center;
@@ -86,21 +67,31 @@ body {
   margin-bottom: 30px;
 }
 
+.contact_info_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .contact-info__block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1;
 }
 
 .contact-info__block--center {
   justify-content: center;
+  order: 3;
+  display: flex;
+  justify-content: flex-end;
 }
-
 .contact-info__item {
-  color: var(--secondary-text-color);
+  color: var(--border-color); 
   text-decoration: none;
   display: flex;
   justify-content: start;
+  font-weight: bold;
 }
 
 .contact-info__item:not(:last-child) {
@@ -115,7 +106,7 @@ body {
 }
 
 .contact-info__item-icon path {
-  fill: var(--icon-color);
+  fill: var(--border-color); 
 }
 
 .contact-info__item-icon {
@@ -130,12 +121,37 @@ body {
   object-fit: cover;
   border: 3px solid;
   border-color: var(--text-decoration-color);
+  transform: translate(40px, -35px); 
+}
+@media screen and (max-width: 576px) {
+  .main-info,
+  .contact_info_container {
+    flex-direction: column;
+  }
+
+  .contact_info_container {
+    align-items: center;
+  }
+  .contact-info__block--center {
+    order: 0; 
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .contact-info__block:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .experiences {
+    margin-right: 0;
+  }
 }
 
-/*intro and skills*/
+/* intro and skills */
 .intro {
   display: flex;
   justify-content: start;
+  margin-top: 30px;
 }
 
 .intro__icon-wrapper {
@@ -170,7 +186,7 @@ body {
   text-align: justify;
 }
 
-/*experience*/
+/* experience */
 .experiences {
   flex: 1 1 60%;
   margin-right: 50px;
